@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Page not found.">
+<meta name="color-scheme" content="light dark">
+<title>CLRT — Not found</title>
+<style>
+  :root { padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px); }
+  body { margin: 0; }
+  img { max-width: 100%; }
+</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground:#F5F6F1; --surface:#FFFFFF; --sunk:#EDEEE7;
+    --ink:#1C231F; --ink-soft:#5B6259; --ink-faint:#83887E;
+    --rule:#DBDAD0; --rule-soft:#E7E7DF;
+    --clay:#AE5537; --gold:#8E6318;
+    --shadow:0 1px 2px rgba(28,35,31,.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#15181A; --surface:#1D2123; --sunk:#23282A;
+      --ink:#E9E7DE; --ink-soft:#A7ADA3; --ink-faint:#868C84;
+      --rule:#33393B; --rule-soft:#272C2E;
+      --clay:#D98A6D; --gold:#D9A64A;
+      --shadow:0 1px 2px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#15181A; --surface:#1D2123; --sunk:#23282A;
+    --ink:#E9E7DE; --ink-soft:#A7ADA3; --ink-faint:#868C84;
+    --rule:#33393B; --rule-soft:#272C2E;
+    --clay:#D98A6D; --gold:#D9A64A;
+    --shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 44rem; margin: 0 auto; padding-inline: 22px; padding-block: 0 88px; }
+
+  /* Masthead ---------------------------------------------------------- */
+  header { padding-block: 60px 34px; border-bottom: 1px solid var(--rule); margin-bottom: 40px; }
+  .mark { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 26px; }
+  .mark b {
+    font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: 27px;
+    letter-spacing: .14em; color: var(--ink);
+  }
+  .mark span {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11.5px;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--clay);
+  }
+  h1 {
+    font-family: Newsreader, Georgia, serif; font-weight: 500;
+    font-size: clamp(30px, 6vw, 42px); line-height: 1.12; letter-spacing: -.012em;
+    margin: 0 0 14px; text-wrap: balance;
+  }
+  .stamp {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px;
+    color: var(--ink-faint); letter-spacing: .03em; margin: 0;
+  }
+
+  /* Summary ----------------------------------------------------------- */
+  .summary {
+    background: var(--surface); border: 1px solid var(--rule); border-radius: 3px;
+    padding: 26px 26px 22px; margin-bottom: 44px; box-shadow: var(--shadow);
+  }
+  .summary h2 {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px;
+    text-transform: uppercase; letter-spacing: .16em; color: var(--clay);
+    margin: 0 0 14px; font-weight: 500;
+  }
+  .summary p { margin: 0 0 12px; }
+  .summary p:last-child { margin-bottom: 0; }
+  .summary strong { font-weight: 600; }
+
+  /* Sections ---------------------------------------------------------- */
+  section { margin-bottom: 42px; scroll-margin-top: 20px; }
+  h2.sec {
+    font-family: Newsreader, Georgia, serif; font-weight: 600;
+    font-size: 21px; line-height: 1.3; margin: 0 0 14px;
+    display: flex; gap: 14px; align-items: baseline; text-wrap: balance;
+  }
+  h2.sec i {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-style: normal;
+    font-size: 12px; color: var(--clay); font-weight: 500;
+    flex: none; padding-top: 2px;
+  }
+  h3 {
+    font-family: "IBM Plex Sans", sans-serif; font-weight: 600; font-size: 15px;
+    margin: 26px 0 8px; color: var(--ink);
+  }
+  p { margin: 0 0 14px; color: var(--ink-soft); }
+  p.lead { color: var(--ink); }
+  strong { color: var(--ink); font-weight: 600; }
+  a { color: var(--clay); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; border-radius: 2px; }
+  ul { margin: 0 0 14px; padding-left: 20px; color: var(--ink-soft); }
+  li { margin-bottom: 7px; }
+  li::marker { color: var(--ink-faint); }
+
+  /* The table is the substance of this document ------------------------ */
+  .scroller { overflow-x: auto; margin-bottom: 18px; border: 1px solid var(--rule); border-radius: 3px; }
+  table { border-collapse: collapse; width: 100%; min-width: 34rem; background: var(--surface); }
+  th, td { text-align: left; padding: 13px 16px; vertical-align: top; font-size: 14.5px; border-bottom: 1px solid var(--rule-soft); }
+  th {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10.5px;
+    text-transform: uppercase; letter-spacing: .13em; color: var(--ink-faint);
+    font-weight: 500; background: var(--sunk); border-bottom-color: var(--rule);
+  }
+  td:first-child { color: var(--ink); font-weight: 500; width: 34%; }
+  td:last-child { color: var(--ink-soft); }
+  tr:last-child td { border-bottom: none; }
+  .never {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px;
+    color: var(--clay); letter-spacing: .04em; white-space: nowrap;
+  }
+
+  footer {
+    border-top: 1px solid var(--rule); padding-top: 26px; margin-top: 56px;
+    font-size: 14px; color: var(--ink-faint);
+  }
+  footer p { color: var(--ink-faint); font-size: 14px; }
+  .draft {
+    border-left: 2px solid var(--gold); padding: 2px 0 2px 16px; margin: 0 0 40px;
+    font-size: 14px; color: var(--ink-soft);
+  }
+  @media (max-width: 480px) {
+    h2.sec { gap: 10px; }
+    .summary { padding: 20px 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="mark"><a href="./" style="text-decoration:none"><b>CLRT</b><span>clarity</span></a></div>
+    <h1>Not found</h1>
+  </header>
+  <p>That page isn't here. <a href="./">Support</a> &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></p>
+</div>
+</body>
+</html>

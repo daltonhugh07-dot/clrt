@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Help for CLRT: finding your Canvas feed, fixing an empty Today screen, and what to do when something looks wrong.">
+<meta name="color-scheme" content="light dark">
+<title>CLRT — Support</title>
+<style>
+  :root { padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px); }
+  body { margin: 0; }
+  img { max-width: 100%; }
+</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground:#F5F6F1; --surface:#FFFFFF; --sunk:#EDEEE7;
+    --ink:#1C231F; --ink-soft:#5B6259; --ink-faint:#83887E;
+    --rule:#DBDAD0; --rule-soft:#E7E7DF;
+    --clay:#AE5537; --gold:#8E6318;
+    --shadow:0 1px 2px rgba(28,35,31,.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#15181A; --surface:#1D2123; --sunk:#23282A;
+      --ink:#E9E7DE; --ink-soft:#A7ADA3; --ink-faint:#868C84;
+      --rule:#33393B; --rule-soft:#272C2E;
+      --clay:#D98A6D; --gold:#D9A64A;
+      --shadow:0 1px 2px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#15181A; --surface:#1D2123; --sunk:#23282A;
+    --ink:#E9E7DE; --ink-soft:#A7ADA3; --ink-faint:#868C84;
+    --rule:#33393B; --rule-soft:#272C2E;
+    --clay:#D98A6D; --gold:#D9A64A;
+    --shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 44rem; margin: 0 auto; padding-inline: 22px; padding-block: 0 88px; }
+
+  /* Masthead ---------------------------------------------------------- */
+  header { padding-block: 60px 34px; border-bottom: 1px solid var(--rule); margin-bottom: 40px; }
+  .mark { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 26px; }
+  .mark b {
+    font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: 27px;
+    letter-spacing: .14em; color: var(--ink);
+  }
+  .mark span {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11.5px;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--clay);
+  }
+  h1 {
+    font-family: Newsreader, Georgia, serif; font-weight: 500;
+    font-size: clamp(30px, 6vw, 42px); line-height: 1.12; letter-spacing: -.012em;
+    margin: 0 0 14px; text-wrap: balance;
+  }
+  .stamp {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px;
+    color: var(--ink-faint); letter-spacing: .03em; margin: 0;
+  }
+
+  /* Summary ----------------------------------------------------------- */
+  .summary {
+    background: var(--surface); border: 1px solid var(--rule); border-radius: 3px;
+    padding: 26px 26px 22px; margin-bottom: 44px; box-shadow: var(--shadow);
+  }
+  .summary h2 {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px;
+    text-transform: uppercase; letter-spacing: .16em; color: var(--clay);
+    margin: 0 0 14px; font-weight: 500;
+  }
+  .summary p { margin: 0 0 12px; }
+  .summary p:last-child { margin-bottom: 0; }
+  .summary strong { font-weight: 600; }
+
+  /* Sections ---------------------------------------------------------- */
+  section { margin-bottom: 42px; scroll-margin-top: 20px; }
+  h2.sec {
+    font-family: Newsreader, Georgia, serif; font-weight: 600;
+    font-size: 21px; line-height: 1.3; margin: 0 0 14px;
+    display: flex; gap: 14px; align-items: baseline; text-wrap: balance;
+  }
+  h2.sec i {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-style: normal;
+    font-size: 12px; color: var(--clay); font-weight: 500;
+    flex: none; padding-top: 2px;
+  }
+  h3 {
+    font-family: "IBM Plex Sans", sans-serif; font-weight: 600; font-size: 15px;
+    margin: 26px 0 8px; color: var(--ink);
+  }
+  p { margin: 0 0 14px; color: var(--ink-soft); }
+  p.lead { color: var(--ink); }
+  strong { color: var(--ink); font-weight: 600; }
+  a { color: var(--clay); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; border-radius: 2px; }
+  ul { margin: 0 0 14px; padding-left: 20px; color: var(--ink-soft); }
+  li { margin-bottom: 7px; }
+  li::marker { color: var(--ink-faint); }
+
+  /* The table is the substance of this document ------------------------ */
+  .scroller { overflow-x: auto; margin-bottom: 18px; border: 1px solid var(--rule); border-radius: 3px; }
+  table { border-collapse: collapse; width: 100%; min-width: 34rem; background: var(--surface); }
+  th, td { text-align: left; padding: 13px 16px; vertical-align: top; font-size: 14.5px; border-bottom: 1px solid var(--rule-soft); }
+  th {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 10.5px;
+    text-transform: uppercase; letter-spacing: .13em; color: var(--ink-faint);
+    font-weight: 500; background: var(--sunk); border-bottom-color: var(--rule);
+  }
+  td:first-child { color: var(--ink); font-weight: 500; width: 34%; }
+  td:last-child { color: var(--ink-soft); }
+  tr:last-child td { border-bottom: none; }
+  .never {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px;
+    color: var(--clay); letter-spacing: .04em; white-space: nowrap;
+  }
+
+  footer {
+    border-top: 1px solid var(--rule); padding-top: 26px; margin-top: 56px;
+    font-size: 14px; color: var(--ink-faint);
+  }
+  footer p { color: var(--ink-faint); font-size: 14px; }
+  .draft {
+    border-left: 2px solid var(--gold); padding: 2px 0 2px 16px; margin: 0 0 40px;
+    font-size: 14px; color: var(--ink-soft);
+  }
+  @media (max-width: 480px) {
+    h2.sec { gap: 10px; }
+    .summary { padding: 20px 18px; }
+  }
+</style>
+<style>
+  .q { margin-bottom: 34px; }
+  .q h3 {
+    font-family: Newsreader, Georgia, serif; font-weight: 600; font-size: 18px;
+    margin: 0 0 8px; color: var(--ink); text-wrap: balance;
+  }
+  .q p { margin: 0 0 10px; }
+  .steps { counter-reset: s; list-style: none; margin: 14px 0 0; padding: 0; }
+  .steps li {
+    counter-increment: s; position: relative; padding-left: 28px;
+    margin-bottom: 11px; color: var(--ink-soft);
+  }
+  .steps li::before {
+    content: counter(s); position: absolute; left: 0; top: 1px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px;
+    color: var(--clay);
+  }
+  .contact {
+    background: var(--surface); border: 1px solid var(--rule); border-radius: 3px;
+    padding: 22px 24px; margin-top: 8px;
+  }
+  .contact p { margin: 0 0 10px; }
+  .contact p:last-child { margin-bottom: 0; }
+  .links { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header>
+    <div class="mark"><b>CLRT</b><span>clarity</span></div>
+    <h1>Support</h1>
+    <p class="stamp">Coursework, classes and deadlines on one screen</p>
+  </header>
+
+  <div class="summary">
+    <h2>The short version</h2>
+    <p>CLRT gathers your classes and assignments into one place and reminds you before things are due. It reads the calendars already on your iPhone, imports a Canvas calendar feed, and pulls dates out of syllabus PDFs.</p>
+    <p><strong>Everything stays on your phone.</strong> There is no account and no server.</p>
+  </div>
+
+  <section>
+    <h2 class="sec"><i>01</i> Finding your Canvas feed link</h2>
+    <p>This is the single most useful thing you can set up, and the least obvious.</p>
+    <ol class="steps">
+      <li>Open Canvas in a browser and go to <strong>Calendar</strong>.</li>
+      <li>Look for <strong>Calendar Feed</strong> at the bottom of the right-hand sidebar.</li>
+      <li>Copy the link it shows you. It ends in <code>.ics</code>.</li>
+      <li>In CLRT: <strong>Settings &rarr; Canvas import</strong>, paste, and fetch.</li>
+    </ol>
+    <p style="margin-top:14px"><strong>Treat that link like a password.</strong> Anyone who has it can read your assignment calendar. CLRT stores it on your phone and your phone fetches the file directly from your school &mdash; it is never sent anywhere else.</p>
+    <p>If your school has the feed turned off, or you are on Blackboard or Moodle, add coursework by hand from the Tracker or drop in a syllabus instead. Every part of CLRT works without Canvas.</p>
+  </section>
+
+  <section>
+    <h2 class="sec"><i>02</i> Common questions</h2>
+
+    <div class="q">
+      <h3>Today is empty</h3>
+      <p>CLRT reads the calendars already on your iPhone, so if calendar access is off, or there is genuinely nothing on your calendar, there is nothing to draw.</p>
+      <p>Check <strong>Settings &rarr; Apps &rarr; CLRT &rarr; Calendars</strong> on your iPhone. If you would rather not grant access at all, enter your class times under <strong>Settings &rarr; Class schedule</strong> in CLRT and they will show up on Today regardless.</p>
+    </div>
+
+    <div class="q">
+      <h3>My Canvas assignments did not come through</h3>
+      <p>A feed only contains what your school published to it. Assignments added late, changed afterwards, or never posted to the calendar at all will not appear &mdash; this is the gap the syllabus import exists to cover.</p>
+    </div>
+
+    <div class="q">
+      <h3>A due time looks wrong</h3>
+      <p>CLRT shows the time your school put in the feed. Some Canvas installations encode a time slightly earlier than the real deadline.</p>
+      <p>Check it against Canvas, and edit the item in CLRT if you want it to read differently. <strong>Anything you edit by hand is kept when you re-sync</strong> &mdash; a later import will not overwrite your correction.</p>
+    </div>
+
+    <div class="q">
+      <h3>The syllabus scan missed things, or got them wrong</h3>
+      <p>Reading dates out of a document is interpretation rather than extraction. CLRT looks for dates near words like <em>due</em>, <em>exam</em>, <em>submit</em> and <em>deadline</em>. A syllabus laid out as a grid of weeks will confuse it, and a scanned one depends on how cleanly it was scanned.</p>
+      <p>Everything it finds is shown to you before anything is saved, so you can uncheck what is wrong and edit the rest.</p>
+    </div>
+
+    <div class="q">
+      <h3>Reminders are not arriving</h3>
+      <p>Three things to check, in order: notifications are allowed for CLRT in iPhone Settings; reminders are switched on inside CLRT under <strong>Settings &rarr; Reminders</strong>; and a Focus mode is not filtering them out.</p>
+      <p>iOS also caps how many pending notifications any app may have at once. CLRT budgets that cap deliberately, prioritising the nearest deadlines, so something six weeks out may not have a reminder scheduled yet.</p>
+    </div>
+
+    <div class="q">
+      <h3>I got a new phone, or my coursework disappeared</h3>
+      <p>CLRT keeps everything in a file on the device. That file is included in an iPhone backup, so restoring a backup to a new phone brings your term with it.</p>
+      <p>Deleting the app deletes its data permanently. There is no copy anywhere else, because there is no server.</p>
+    </div>
+
+    <div class="q">
+      <h3>Can I use CLRT on my iPad too?</h3>
+      <p>Yes, but each device keeps its own copy &mdash; there is no syncing between them yet.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec"><i>03</i> Reporting something broken</h2>
+    <div class="contact">
+      <p>Email <a href="mailto:daltonhugh07@gmail.com">daltonhugh07@gmail.com</a>.</p>
+      <p>What helps most: your iPhone model and iOS version, what you tapped, what you expected, and what happened instead. If it involves a syllabus or a Canvas feed, say which school &mdash; feeds differ between them, and that is usually the answer.</p>
+      <p>Please do not send your Canvas feed link. It is a credential, and it is never needed to diagnose anything.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec"><i>04</i> Privacy and terms</h2>
+    <p>CLRT collects nothing, because there is nowhere for it to be collected to. The full detail is in the two documents below.</p>
+    <p class="links">
+      <a href="privacy.html">Privacy Policy &nearr;</a>
+      <a href="terms.html">Terms of Service &nearr;</a>
+    </p>
+  </section>
+
+  <footer>
+    <p>CLRT &middot; Support</p>
+  </footer>
+</div>
+
+</body>
+</html>
